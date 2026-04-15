@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="@android:color/white">
+
+    <TextView
+        android:id="@+id/text_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cobertura360"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:paddingBottom="16dp" />
+
+    <TextView
+        android:id="@+id/text_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sube tus bases en Excel para almacenamiento local."
+        android:textSize="16sp"
+        android:textColor="@android:color/black"
+        android:paddingBottom="24dp" />
+
+    <Button
+        android:id="@+id/button_select_file"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Seleccionar archivo Excel" />
+
+    <TextView
+        android:id="@+id/text_status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Estado: esperando selección..."
+        android:textSize="14sp"
+        android:textColor="@android:color/black"
+        android:paddingTop="24dp"
+        android:paddingBottom="12dp" />
+
+    <TextView
+        android:id="@+id/text_files"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="No hay archivos guardados aún."
+        android:textSize="14sp"
+        android:textColor="@android:color/black" />
+
+</LinearLayout>
