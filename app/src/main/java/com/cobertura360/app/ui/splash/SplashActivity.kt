@@ -11,7 +11,10 @@ import com.cobertura360.app.data.repository.UserRepository
 import com.cobertura360.app.ui.home.HomeActivity
 import com.cobertura360.app.ui.login.LoginActivity
 import com.google.android.material.textview.MaterialTextView
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class SplashActivity : AppCompatActivity() {
 
@@ -33,19 +36,19 @@ class SplashActivity : AppCompatActivity() {
             try {
                 Log.d("SplashActivity", "Inicializando aplicación")
 
-                // Initialize database
                 val db = AppDatabase.getInstance(applicationContext)
                 val userRepository = UserRepository(db.userDao())
 
-                // Insert default admin user if doesn't exist
-                userRepository.insertDefaultUsers()
+                withContext(Dispatchers.IO) {
+                    // Insert default admin user if doesn't exist
+                    userRepository.insertDefaultUsers()
+                }
                 Log.d("SplashActivity", "Base de datos inicializada")
 
-                // Check if user is logged in
                 val sessionManager = SessionManager(applicationContext)
                 val isLoggedIn = sessionManager.isLoggedIn()
 
-                Thread.sleep(1000) // Small delay for UX
+                delay(1000)
 
                 if (isLoggedIn) {
                     Log.d("SplashActivity", "Usuario ya está logueado, yendo a Home")
@@ -58,7 +61,6 @@ class SplashActivity : AppCompatActivity() {
 
             } catch (e: Exception) {
                 Log.e("SplashActivity", "Error en la inicialización", e)
-                // Fallback to login screen on error
                 startActivity(Intent(this@SplashActivity, LoginActivity::class.java))
                 finish()
             }
