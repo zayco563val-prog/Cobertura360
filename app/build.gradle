@@ -5,8 +5,8 @@ plugins {
 }
 
 android {
-    namespace 'com.cobertura360.app'
-    compileSdk 34
+    namespace = 'com.cobertura360.app'
+    compileSdk = 34
 
     defaultConfig {
         applicationId "com.cobertura360.app"
